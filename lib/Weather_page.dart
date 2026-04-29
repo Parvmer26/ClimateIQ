@@ -204,23 +204,29 @@ class _WeatherPageState extends State<WeatherPage> {
               ),
               Lottie.asset(getWeatherAnimation(_weather?.mainCondition)),
               Column(
-                children: [
-                  Text('${_weather?.temperature.round()}°C',
-                      style: TextStyle(
-                          color: Colors.grey.shade300,
-                          fontFamily: 'abels',
-                          fontSize: 30,
-                          fontWeight: FontWeight.w700)),
-                  Text(
-                    _weather?.mainCondition ?? "Fetching Weather..",
-                    style: const TextStyle(
-                        color: Colors.grey,
-                        fontFamily: 'abels',
-                        fontSize: 25,
-                        fontWeight: FontWeight.w700),
-                  ),
-                ],
-              ),
+  children: [
+    Text(
+      _weather?.temperature != null
+          ? '${_weather!.temperature.round()}°C'
+          : '--°C',
+      style: TextStyle(
+        color: Colors.grey.shade300,
+        fontFamily: 'abels',
+        fontSize: 30,
+        fontWeight: FontWeight.w700,
+      ),
+    ),
+    Text(
+      _weather?.mainCondition ?? "Fetching weather...",
+      style: const TextStyle(
+        color: Colors.grey,
+        fontFamily: 'abels',
+        fontSize: 25,
+        fontWeight: FontWeight.w700,
+      ),
+    ),
+  ],
+)
             ],
           ),
         ),
